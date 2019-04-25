@@ -70,79 +70,201 @@ registers = {
 
 #
 fields = {}
-fields["CHOPCONF"] = {
-	"toff":						0x0F << 0,
-	"hstrt":					0x07 << 4,
-	"hend":						0x0F << 7,
-	"fd3":						0x01 << 11,
-	"disfdcc":					0x01 << 12,
-	"chm":						0x01 << 14,
-	"TBL":						0x03 << 15,
-	"vhighfs":					0x01 << 18,
-	"vhighchm":					0x01 << 19,
-	"tpfd":						0x0F << 20,
-	"MRES":						0x0F << 24,
-	"intpol":					0x01 << 28,
-	"dedge":					0x01 << 29,
-	"diss2g":					0x01 << 30,
-	"diss2vs":					0x01 << 31
-}
-
-fields["COOLCONF"] = {
-	"semin":					0x0F << 0,
-	"seup":						0x03 << 5,
-	"semax":					0x0F << 8,
-	"sedn":						0x03 << 13,
-	"seimin":					0x01 << 15,
-	"sgt":						0x7F << 16,
-	"sfilt":					0x01 << 24
-}
-
 fields["GCONF"] = {
-	"recalibrate":				0x01 << 0,
-	"faststandstill":			0x01 << 1,
-	"en_pwm_mode":				0x01 << 2,
-	"multistep_filt":			0x01 << 3,
-	"shaft":					0x01 << 4,
-	"diag0_error":				0x01 << 5,
-	"diag0_otpw":				0x01 << 6,
-	"diag0_stall":				0x01 << 7,
-	"diag1_stall":				0x01 << 8,
-	"diag1_index":				0x01 << 9,
-	"diag1_onstate":			0x01 << 10,
-	"diag1_steps_skipped":		0x01 << 11,
-	"diag0_int_pushpull":		0x01 << 12,
-	"diag1_poscomp_pushpull":	0x01 << 13,
-	"small_hysteresis":			0x01 << 14,
-	"stop_enable":				0x01 << 15,
-	"direct_mode":				0x01 << 16,
-	"test_mode":				0x01 << 17
+		"recalibrate":						0x01 << 0,
+		"faststandstill":					0x01 << 1,
+		"en_pwm_mode":						0x01 << 2,
+		"multistep_filt":					0x01 << 3,
+		"shaft":							0x01 << 4,
+		"diag0_error":						0x01 << 5,
+		"diag0_otpw":						0x01 << 6,
+		"diag0_stall":						0x01 << 7,
+		"diag1_stall":						0x01 << 8,
+		"diag1_index":						0x01 << 9,
+		"diag1_onstate":					0x01 << 10,
+		"diag1_steps_skipped":				0x01 << 11,
+		"diag0_int_pushpull":				0x01 << 12,
+		"diag1_poscomp_pushpull":			0x01 << 13,
+		"small_hysteresis":					0x01 << 14,
+		"stop_enable":						0x01 << 15,
+		"direct_mode":						0x01 << 16,
+		"test_mode":						0x01 << 17
+}						
+fields["GSTAT"] = {
+		"reset":						0x01 << 0,
+		"drv_err":						0x01 << 1,
+		"uv_cp":						0x01 << 2
 }
-
+fields["SLAVECONF"] = {
+		"SLAVEADDR":						0xFF << 0,
+		"SENDDELAY":						0x0F << 8
+}
+fields["IOIN"] = {
+		"REFL_STEP":						0x01 << 0,
+		"REFR_DIR":							0x01 << 1,
+		"ENCB_DCEN_CFG4":					0x01 << 2,
+		"ENCA_DCIN_CFG5":					0x01 << 3,
+		"DRV_ENN":							0x01 << 4,
+		"ENC_N_DCO_CFG6":					0x01 << 5,
+		"SD_MODE":							0x01 << 6,
+		"SWCOMP_IN":						0x01 << 7,
+		"VERSION":							0xFF << 24
+}
+fields["OUTPUT"] = {
+		"OUTPUT":							0x01 << 0
+}
+fields["OTP_PROG"] = {
+		"OTPBIT":						0x07 << 0,
+		"OTPBYTE":						0x03 << 4,
+		"OTPMAGIC":						0xFF << 8
+}
+fields["OTP_READ"] = {
+		"OTP_READ":						0xFF << 0
+}
+fields["FACTORY_CONF"] = {
+		"FCLKTRIM":						0x1F << 0
+}
+fields["SHORT_CONF"] = {
+		"S2VS_LEVEL":						0x0F << 0,
+		"S2G_LEVEL":						0x0F << 8,
+		"SHORTFILTER":						0x03 << 16,
+		"shortdelay":						0x01 << 18,
+}
+fields["DRV_CONF"] = {
+		"BBMTIME":							0x1F << 0,
+		"BBMCLKS":							0x0F << 8,
+		"OTSELECT":							0x03 << 16,
+		"DRVSTRENGTH":						0x03 << 18,
+		"FILT_ISENSE":						0x03 << 20
+}
+fields["GLOBALSCALER"] = {
+		"GLOBAL SCALER":					0xFF << 0
+}
+fields["OFFSET_READ"] = {
+		"OFFSET_ READ_B":					0xFF << 0,
+		"OFFSET_ READ_A":					0xFF << 8
+}
+fields["OTP_READ"] = {
+		"OTP_READ":							0xFF << 0
+}
 fields["IHOLD_IRUN"] = {
-	"IHOLD":					0x1F << 0,
-	"IRUN":						0x1F << 8,
-	"IHOLDDELAY":				0x0F << 16
+		"IHOLD":							0x1F << 0,
+		"IRUN":								0x1F << 8,
+		"IHOLDDELAY":						0x0F << 16
 }
-
+fields["SW_MODE"] = {
+		"stop_l_enable":						0x01 << 0,
+		"stop_r_enable":						0x01 << 1,
+		"pol_stop_l":							0x01 << 2,
+		"pol_stop_r":							0x01 << 3,
+		"swap_lr":								0x01 << 4,
+		"latch_l_active":						0x01 << 5,
+		"latch_l_inactive":						0x01 << 6,
+		"latch_r_active":						0x01 << 7,
+		"latch_r_inactive":						0x01 << 8,
+		"en_latch_encoder":						0x01 << 9,
+		"sg_stop":								0x01 << 10,
+		"en_softstop":							0x01 << 11
+}
+fields["RAMP_STAT"] = {
+		"status_stop_l":						0x01 << 0,
+		"status_stop_r":						0x01 << 1,
+		"status_latch_l":						0x01 << 2,
+		"status_latch_r":						0x01 << 3,
+		"event_stop_l":							0x01 << 4,
+		"event_stop_r":							0x01 << 5,
+		"event_stop_ sg":						0x01 << 6,
+		"event_pos_ reached":					0x01 << 7,
+		"velocity_ reached":					0x01 << 8,
+		"position_ reached":					0x01 << 9,
+		"vzero":								0x01 << 10,
+		"t_zerowait_ active":					0x01 << 11,
+		"second_move":							0x01 << 12,
+		"status_sg":							0x01 << 13
+}
+fields["ENCMODE"] = {
+		"pol_A":						0x01 << 0,
+		"pol_B":						0x01 << 1,
+		"pol_N":						0x01 << 2,
+		"ignore_AB":					0x01 << 3,
+		"clr_cont":						0x01 << 4,
+		"clr_once":						0x01 << 5,
+		"pos_edge":						0x01 << 6,
+		"neg_edge":						0x01 << 7,
+		"clr_enc_x":					0x01 << 8,
+		"latch_x_act":					0x01 << 9,
+		"enc_sel_decimal":				0x01 << 10
+}
+fields["MSLUTSEL"] = {
+		"W0":						0x03 << 0,
+		"W1":						0x03 << 2,
+		"W2":						0x03 << 4,
+		"W3":						0x03 << 6,
+		"X1":						0xFF << 8,
+		"X2":						0xFF << 16,
+		"X3":						0xFF << 24
+}
+fields["MSLUTSTART"] = {
+		"START_SIN":				0xFF << 0,
+		"START_SIN90":				0xFF << 16
+}
+fields["MSCURACT"] = {
+		"CUR_A":					0x1FF << 0,
+		"CUR_B":					0x1FF << 16
+}
+fields["CHOPCONF"] = {
+		"toff":						0x0F << 0,
+		"hstrt":					0x07 << 4,
+		"hend":						0x0F << 7,
+		"fd3":						0x01 << 11,
+		"disfdcc":					0x01 << 12,
+		"chm":						0x01 << 14,
+		"tbl":						0x03 << 15,
+		"vhighfs":					0x01 << 18,
+		"vhighchm":					0x01 << 19,
+		"tpfd":						0x0F << 20,
+		"mres":						0x0F << 24,
+		"intpol":					0x01 << 28,
+		"dedge":					0x01 << 29,
+		"diss2g":					0x01 << 30,
+		"diss2vs":					0x01 << 31
+}
+fields["COOLCONF"] = {
+		"semin":					0x0F << 0,
+		"seup":						0x03 << 5,
+		"semax":					0x0F << 8,
+		"sedn":						0x03 << 13,
+		"seimin":					0x01 << 15,
+		"sgt":						0x7F << 16,
+		"sfilt":					0x01 << 24
+}
 fields["PWMCONF"] = {
-	"PWM_OFS":					0xFF << 0,
-	"PWM_GRAD":					0xFF << 8,
-	"pwm_freq":					0x03 << 16,
-	"pwm_autoscale":			0x01 << 18,
-	"pwm_autograd":				0x01 << 19,
-	"freewheel":				0x03 << 20,
-	"PWM_REG":					0x0F << 24,
-	"PWM_LIM":					0x0F << 28
+		"PWM_ OFS":						0xFF << 0,
+		"PWM_ GRAD":					0xFF << 8,
+		"pwm_freq":						0x03 << 16,
+		"pwm_ autoscale":				0x01 << 18,
+		"pwm_ autograd":				0x01 << 19,
+		"freewheel0":					0x01 << 20,
+		"freewheel1":					0x01 << 21,
+		"PWM_REG":						0x0F << 24,
+		"PWM_LIM":						0x0F << 28
 }
-
-fields["TPOWERDOWN"] = {
-    "TPOWERDOWN": 0xff
+fields["DRV_STATUS"] = {
+		"SG_ RESULT":					0x3FF << 0,
+		"s2vsa":						0x01 << 12,
+		"s2vsb":						0x01 << 13,
+		"stealth":						0x01 << 14,
+		"fsactive":						0x01 << 15,
+		"CSACTUAL":						0xFF << 16,
+		"stallGuard":					0x01 << 24,
+		"ot":							0x01 << 25,
+		"otpw":							0x01 << 26,
+		"s2ga":							0x01 << 27,
+		"s2gb":							0x01 << 28,
+		"ola":							0x01 << 29,
+		"olb":							0x01 << 30,
+		"stst":							0x01 << 31
 }
-fields["TPWMTHRS"] = { 
-	"TPWMTHRS": 0xfffff
-}
-
 #
 
 FieldFormatters = {
