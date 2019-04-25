@@ -141,8 +141,8 @@ fields["GLOBALSCALER"] = {
 		"GLOBAL SCALER":					0xFF << 0
 }
 fields["OFFSET_READ"] = {
-		"OFFSET_ READ_B":					0xFF << 0,
-		"OFFSET_ READ_A":					0xFF << 8
+		"OFFSET_READ_B":					0xFF << 0,
+		"OFFSET_READ_A":					0xFF << 8
 }
 fields["OTP_READ"] = {
 		"OTP_READ":							0xFF << 0
@@ -173,12 +173,12 @@ fields["RAMP_STAT"] = {
 		"status_latch_r":						0x01 << 3,
 		"event_stop_l":							0x01 << 4,
 		"event_stop_r":							0x01 << 5,
-		"event_stop_ sg":						0x01 << 6,
-		"event_pos_ reached":					0x01 << 7,
-		"velocity_ reached":					0x01 << 8,
-		"position_ reached":					0x01 << 9,
+		"event_stop_sg":						0x01 << 6,
+		"event_pos_reached":					0x01 << 7,
+		"velocity_reached":					0x01 << 8,
+		"position_reached":					0x01 << 9,
 		"vzero":								0x01 << 10,
-		"t_zerowait_ active":					0x01 << 11,
+		"t_zerowait_active":					0x01 << 11,
 		"second_move":							0x01 << 12,
 		"status_sg":							0x01 << 13
 }
@@ -239,18 +239,18 @@ fields["COOLCONF"] = {
 		"sfilt":					0x01 << 24
 }
 fields["PWMCONF"] = {
-		"PWM_ OFS":						0xFF << 0,
-		"PWM_ GRAD":					0xFF << 8,
+		"PWM_OFS":						0xFF << 0,
+		"PWM_GRAD":					0xFF << 8,
 		"pwm_freq":						0x03 << 16,
-		"pwm_ autoscale":				0x01 << 18,
-		"pwm_ autograd":				0x01 << 19,
+		"pwm_autoscale":				0x01 << 18,
+		"pwm_autograd":				0x01 << 19,
 		"freewheel0":					0x01 << 20,
 		"freewheel1":					0x01 << 21,
 		"PWM_REG":						0x0F << 24,
 		"PWM_LIM":						0x0F << 28
 }
 fields["DRV_STATUS"] = {
-		"SG_ RESULT":					0x3FF << 0,
+		"SG_RESULT":					0x3FF << 0,
 		"s2vsa":						0x01 << 12,
 		"s2vsb":						0x01 << 13,
 		"stealth":						0x01 << 14,
