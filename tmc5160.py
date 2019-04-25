@@ -137,8 +137,8 @@ fields["DRV_CONF"] = {
 		"DRVSTRENGTH":						0x03 << 18,
 		"FILT_ISENSE":						0x03 << 20
 }
-fields["GLOBALSCALER"] = {
-		"GLOBAL SCALER":					0xFF << 0
+fields["GLOBAL_SCALER"] = {
+		"GLOBAL_SCALER":					0xFF << 0
 }
 fields["OFFSET_READ"] = {
 		"OFFSET_READ_B":					0xFF << 0,
